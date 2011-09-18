@@ -6,18 +6,10 @@ TARGET_LINK_LIBRARIES(annotate_image nestk)
 ADD_EXECUTABLE(calibrate_kinect calibrate_kinect.cpp ${common_sources})
 TARGET_LINK_LIBRARIES(calibrate_kinect nestk)
 
-<<<<<<< HEAD
-ADD_EXECUTABLE(calibrate_projector calibrate_projector.cpp ${common_sources})
-TARGET_LINK_LIBRARIES(calibrate_projector nestk)
-#INSTALL(TARGETS calibrate_projector DESTINATION bin)
-
-ADD_EXECUTABLE(calibrate-multiple-kinects calibrate_multiple_kinects.cpp ${common_sources})
-=======
 NESTK_ADD_EXECUTABLE(calibrate_projector calibrate_projector.cpp ${common_sources})
 TARGET_LINK_LIBRARIES(calibrate_projector nestk)
 
 NESTK_ADD_EXECUTABLE(calibrate-multiple-kinects calibrate_multiple_kinects.cpp ${common_sources})
->>>>>>> upstream/master
 TARGET_LINK_LIBRARIES(calibrate-multiple-kinects nestk)
 
 NESTK_ADD_EXECUTABLE(calibrate-openni-intrinsics calibrate_openni_intrinsics.cpp ${common_sources})
