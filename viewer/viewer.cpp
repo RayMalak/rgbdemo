@@ -72,7 +72,7 @@ int main (int argc, char** argv)
     ntk_debug_level = opt::debug_level();
     cv::setBreakOnError(true);
 
-    QApplication::setGraphicsSystem("raster");
+    QApplication::setGraphicsSystem("native");
     QApplication app (argc, argv);
 
     const char* fake_dir = opt::image();
@@ -83,6 +83,10 @@ int main (int argc, char** argv)
     ntk::RGBDProcessor* processor = 0;
 
     RGBDGrabber* grabber = 0;
+
+#ifdef NESTK_USE_OPENNI
+    OpenniDriver* ni_driver = 0;
+#endif
 
     bool use_openni = !opt::freenect();
 #ifndef NESTK_USE_OPENNI
@@ -101,7 +105,8 @@ int main (int argc, char** argv)
         // Config dir is supposed to be next to the binaries.
         QDir prev = QDir::current();
         QDir::setCurrent(QApplication::applicationDirPath());
-        OpenniGrabber* k_grabber = new OpenniGrabber();
+        if (!ni_driver) ni_driver = new OpenniDriver();
+        OpenniGrabber* k_grabber = new OpenniGrabber(*ni_driver);
         k_grabber->setTrackUsers(false);
         if (opt::high_resolution())
             k_grabber->setHighRgbResolution(true);

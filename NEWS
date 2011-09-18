@@ -1,3 +1,20 @@
+RGBDemo 0.6.1 (01 September 2011)
+=================================
+
+* Various bug fixes
+* Compatibility with OpenCV 2.3.1
+* Cleanup viewer interface
+* Experimental infrared support with OpenNI (still buggy)
+* Camera/Projector calibration thanks to Mariano Tepper and Christian Parsons
+
+RGBDemo 0.6.0 (19 July 2011)
+============================
+
+* Grabbing from multiple Kinect
+* Checkerboard-based and manual calibration of multiple Kinect
+* Demo of 3D model estimation of objects lying on a table
+* Better PCL integration
+
 RGBDemo 0.5.0 (22 March 2011)
 =============================
 

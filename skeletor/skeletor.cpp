@@ -67,10 +67,11 @@ int main (int argc, char** argv)
 
     QDir prev = QDir::current();
     QDir::setCurrent(QApplication::applicationDirPath());
-    OpenniGrabber* grabber = new OpenniGrabber();
+    OpenniDriver ni_driver;
+    OpenniGrabber* grabber = new OpenniGrabber(ni_driver);
     if (opt::high_resolution())
         grabber->setHighRgbResolution(true);
-    grabber->initialize();
+    grabber->connectToDevice();
     QDir::setCurrent(prev.absolutePath());
 
     if (opt::sync())
@@ -89,6 +90,5 @@ int main (int argc, char** argv)
         gui_controller.setPaused(true);
 
     grabber->start();
-
     app.exec();
 }
