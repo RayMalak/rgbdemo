@@ -398,7 +398,7 @@ void calibrate_projector(Context& context, const std::vector<cv::Mat1d*>& homogr
 	//   context.T(1,0) = H(1,3);
 	//   context.T(2,0) = H(2,3);
 
-	context.T =  context.rgb_R * context.T + context.rgb_T;
+	context.T =  context.rgb_R * context.T - context.rgb_T;
 	context.R =  context.rgb_R * context.R;
 
 	// 	std::cout << "---" << std::endl;
